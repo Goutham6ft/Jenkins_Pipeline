@@ -12,6 +12,7 @@ pipeline {
         stage('Test') {
           steps {
             echo 'E2E testing is completed'
+            echo 'Get the Driver path ${Chromepath}'
           }
         }
 
@@ -30,5 +31,8 @@ pipeline {
       }
     }
 
+  }
+  environment {
+    Chromepath = 'C:\\Job\\Jenkins'
   }
 }
