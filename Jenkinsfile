@@ -1,7 +1,7 @@
 pipeline {
   agent any
   stages {
-    stage('Build') {
+    stage('Build plus testing stage') {
       parallel {
         stage('Build') {
           steps {
@@ -24,7 +24,7 @@ pipeline {
       }
     }
 
-    stage('Deployment') {
+    stage('Deployment stage') {
       steps {
         echo 'Deploying our application to Azure Server'
       }
