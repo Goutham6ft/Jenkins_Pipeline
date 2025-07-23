@@ -26,9 +26,20 @@ pipeline {
     }
 
     stage('Deployment stage') {
-      steps {
-        input(message: 'Only If Accept then go for deployment', id: 'ok', cancel: 'Cancel')
-        echo 'Deploying our application to Azure Server'
+      parallel {
+        stage('Deployment stage') {
+          steps {
+            input(message: 'Only If Accept then go for deployment', id: 'ok', cancel: 'Cancel')
+            echo 'Deploying our application to Azure Server'
+          }
+        }
+
+        stage('Archive Artifacts') {
+          steps {
+            archiveArtifacts 'Test_Results_log.txt'
+          }
+        }
+
       }
     }
 
