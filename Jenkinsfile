@@ -25,7 +25,7 @@ pipeline {
       }
     }
 
-    stage('Deployment stage') {
+    stage('Deployment plus Archive Artifacts stage') {
       parallel {
         stage('Deployment stage') {
           steps {
