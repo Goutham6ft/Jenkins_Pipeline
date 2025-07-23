@@ -27,6 +27,7 @@ pipeline {
 
     stage('Deployment stage') {
       steps {
+        input(message: 'Only If Accept then go for deployment', id: 'ok', cancel: 'Cancel')
         echo 'Deploying our application to Azure Server'
       }
     }
